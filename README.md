@@ -8,7 +8,7 @@ LindaGrid v3 (TG3) uses a set of NodeJS apps to talk with Redis and PostgreSQL t
 
 ### Versioning
 
-LindaGrid v3 (TG3) will use api versioning moving forward. As this is the first iteration of the improved LindaGrid, we will start with **v1**. ex: `https://api.lindagrid.io/v1`
+LindaGrid v3 (TG3) will use api versioning moving forward. As this is the first iteration of the improved LindaGrid, we will start with **v1**. ex: `https://api.lindagrid.lindacoin.org/v1`
 
 ### Endpoints
 
@@ -31,17 +31,17 @@ LindaGrid v3 (TG3) will use api versioning moving forward. As this is the first 
 
 #### 1. Get Account Info By Address
 
-- _GET_ https://api.lindagrid.io/v1/accounts/:address
+- _GET_ https://api.lindagrid.lindacoin.org/v1/accounts/:address
 - JavaLinda (JT) API:
   - `/wallet/getaccount`
 - Usage:
   - Returns information about a specific account
 - Params:
-  - address The account’s address in base58 or hex format (0x... and 41...)
+  - address The account’s address in base58 or hex format (0x... and 30...)
 - Options:
   - `only_confirmed` Shows only the situation at latest confirmed block.
     `true` | `false` default `false`
-- ex: https://api.lindagrid.io/v1/accounts/TLCuBEirVzB6V4menLZKw1jfBTFMZbuKq7only_confirmed=false
+- ex: https://api.lindagrid.lindacoin.org/v1/accounts/LXo7bagwm5CCh3EZBnGP6Twxz7e3FCr4xD7only_confirmed=false
 - Return example:
 
 ```JSON
@@ -61,7 +61,7 @@ LindaGrid v3 (TG3) will use api versioning moving forward. As this is the first 
             },
             "latest_consume_time_for_energy": 1558108998000
           },
-          "address": "41704833c02883b3261f7baf62f8cb19b4b0c2e64e",
+          "address": "30704833c02883b3261f7baf62f8cb19b4b0c2e64e",
           "allowance": 704953,
           "asset": [...],
           "assetV2": [...],
@@ -81,7 +81,7 @@ LindaGrid v3 (TG3) will use api versioning moving forward. As this is the first 
 
 #### 2. Get Transactions By Account Address
 
-- _GET_ https://api.lindagrid.io/v1/accounts/:address/transactions
+- _GET_ https://api.lindagrid.lindacoin.org/v1/accounts/:address/transactions
 - JavaLinda (JT) API:
   - `/walletextension/gettransactionfromthis`
   - `/walletextension/gettransactiontothis`
@@ -109,20 +109,20 @@ LindaGrid v3 (TG3) will use api versioning moving forward. As this is the first 
   - `max_block_timestamp` The maximum transaction timestamp default `now`
     Alias: `max_timestamp`
 - ex: (N.B. Filter are non exclusives.)
-  - GET https://api.lindagrid.io/v1/accounts/TLCuBEirVzB6V4menLZKw1jfBTFMZbuKq/transactions?only_to=true&only_from=true
+  - GET https://api.lindagrid.lindacoin.org/v1/accounts/LXo7bagwm5CCh3EZBnGP6Twxz7e3FCr4xD/transactions?only_to=true&only_from=true
     is equivalent to
-  - GET https://api.lindagrid.io/v1/accounts/TLCuBEirVzB6V4menLZKw1jfBTFMZbuKq/transactions
+  - GET https://api.lindagrid.lindacoin.org/v1/accounts/LXo7bagwm5CCh3EZBnGP6Twxz7e3FCr4xD/transactions
 
 #### 3. Get Account Resources By Address
 
-- _GET_ https://api.lindagrid.io/v1/accounts/:address/resources
+- _GET_ https://api.lindagrid.lindacoin.org/v1/accounts/:address/resources
 - JavaLinda (JT) API:
   - `/wallet/getaccountresource`
 - Usage:
   - Returns the resources associated to a specific account.
 - Params:
   - `address` The account’s address
-- ex: https://api.lindagrid.io/v1/accounts/TLCuBEirVzB6V4menLZKw1jfBTFMZbuKq/resources
+- ex: https://api.lindagrid.lindacoin.org/v1/accounts/LXo7bagwm5CCh3EZBnGP6Twxz7e3FCr4xD/resources
 
 ```JSON
     {
@@ -144,7 +144,7 @@ LindaGrid v3 (TG3) will use api versioning moving forward. As this is the first 
 
 #### 1. Get All Assets
 
-- _GET_ https://api.lindagrid.io/v1/assets
+- _GET_ https://api.lindagrid.lindacoin.org/v1/assets
 - Usage:
   - Returns all the assets.
 - Options:
@@ -159,7 +159,7 @@ LindaGrid v3 (TG3) will use api versioning moving forward. As this is the first 
 
 #### 2. Get Assets By Identifier
 
-- _GET_ https://api.lindagrid.io/v1/assets/:identifier
+- _GET_ https://api.lindagrid.lindacoin.org/v1/assets/:identifier
 - JavaLinda (JT) API:
   - `/wallet/getassetissuebyaccount`
   - `/wallet/getassetissuebyid`
@@ -174,7 +174,7 @@ LindaGrid v3 (TG3) will use api versioning moving forward. As this is the first 
 
 #### 3. Get Assets By Name
 
-- _GET_ https://api.lindagrid.io/v1/assets/:name/list
+- _GET_ https://api.lindagrid.lindacoin.org/v1/assets/:name/list
 - JavaLinda (JT) API:
   - `/wallet/getassetissuelistbyname`
   - `/wallet/getassetissuelist`
@@ -197,7 +197,7 @@ LindaGrid v3 (TG3) will use api versioning moving forward. As this is the first 
 
 #### 1. Returns Events By Block Identifier
 
-- _GET_ https://api.lindagrid.io/v1/blocks/:identifier/events
+- _GET_ https://api.lindagrid.lindacoin.org/v1/blocks/:identifier/events
 - Usage:
   - Returns all the events in the specified block. Depending on the data, the entire block can be confirmed or unconfirmed.
 - Params:
@@ -207,7 +207,7 @@ LindaGrid v3 (TG3) will use api versioning moving forward. As this is the first 
 
 #### 1. Get Events By Contract Address
 
-- _GET_ https://api.lindagrid.io/v1/contracts/:address/events
+- _GET_ https://api.lindagrid.lindacoin.org/v1/contracts/:address/events
 - Usage:
   - Returns the events emitted by a smart contract.
 - Params:
@@ -232,7 +232,7 @@ LindaGrid v3 (TG3) will use api versioning moving forward. As this is the first 
 
 #### 2. Get Transactions By Contract Address
 
-- _GET_ https://api.lindagrid.io/v1/contracts/:address/transactions
+- _GET_ https://api.lindagrid.lindacoin.org/v1/contracts/:address/transactions
 - Usage:
   - Returns the transactions related a smart contract.
 - Params:
@@ -257,7 +257,7 @@ LindaGrid v3 (TG3) will use api versioning moving forward. As this is the first 
 
 #### 1. Get Events By Transaction ID
 
-- _GET_ https://api.lindagrid.io/v1/transactions/:id/events
+- _GET_ https://api.lindagrid.lindacoin.org/v1/transactions/:id/events
 - Usage:
   - Returns the events emitted by a transaction.
 - Params:
@@ -272,31 +272,31 @@ The Following are Four Methods for Polling:
 
 ### 1. By Contract Address:<br>
 
-https://api.lindagrid.io/event/contract/LPVGVfnrHBSgv4ypgdaSRuWrdfwBjpQyn9
+https://api.lindagrid.lindacoin.org/event/contract/LPVGVfnrHBSgv4ypgdaSRuWrdfwBjpQyn9
 
 ### 2. By Contract Address and Event Name:<br>
 
-curl https://api.lindagrid.io/event/contract/LPVGVfnrHBSgv4ypgdaSRuWrdfwBjpQyn9/DiceResult
+curl https://api.lindagrid.lindacoin.org/event/contract/LPVGVfnrHBSgv4ypgdaSRuWrdfwBjpQyn9/DiceResult
 
 ### 3. By Contract Address, Event Name, and Block Height:
 
-https://api.lindagrid.io/event/contract/LPVGVfnrHBSgv4ypgdaSRuWrdfwBjpQyn9/DiceResult/7273383
+https://api.lindagrid.lindacoin.org/event/contract/LPVGVfnrHBSgv4ypgdaSRuWrdfwBjpQyn9/DiceResult/7273383
 
 ### 4. By Transaction ID:<br>
 
-https://api.lindagrid.io/event/transaction/d74ba9c3947b509db385fe2df5fb1dc49f10fb33da93e1e5903d897714ef0f5c
+https://api.lindagrid.lindacoin.org/event/transaction/d74ba9c3947b509db385fe2df5fb1dc49f10fb33da93e1e5903d897714ef0f5c
 
 ## Request Parameters:<br>
 
 `fromTimestamp` sets a time stamp, default 0, returning all events after or before that timestamp. For example:
 
-https://api.lindagrid.io/event/contract/LPVGVfnrHBSgv4ypgdaSRuWrdfwBjpQyn9?fromTimestamp=1541547888000
+https://api.lindagrid.lindacoin.org/event/contract/LPVGVfnrHBSgv4ypgdaSRuWrdfwBjpQyn9?fromTimestamp=1541547888000
 
 For retro-compatibility you can pass `since` instead of `fromTimestamp`.
 
 `size` indicates the number of results returned. Default is 20, maximum is 200. Example:
 
-https://api.lindagrid.io/event/contract/LWZXZmDmZKCxoQA2Lom8LswmTXJQ15cSzT/Notify?size=10
+https://api.lindagrid.lindacoin.org/event/contract/LWZXZmDmZKCxoQA2Lom8LswmTXJQ15cSzT/Notify?size=10
 
 `page` is no more supported.
 
@@ -314,11 +314,11 @@ sort=-block_timestamp
 
 for descending order. For example:
 
-https://api.lindagrid.io/event/contract/LPVGVfnrHBSgv4ypgdaSRuWrdfwBjpQyn9?fromTimestamp=1541547888000&sort=block_timestamp
+https://api.lindagrid.lindacoin.org/event/contract/LPVGVfnrHBSgv4ypgdaSRuWrdfwBjpQyn9?fromTimestamp=1541547888000&sort=block_timestamp
 
 `fingerprint` is necessary for pagination. Any time you require an API that could return more data that the indicate size, you will see that the latest element has the property `_fingerprint`. To get the next page, you can just call again the same API adding the parameter `fingerprint=[previous _fingerint parameter]`. For example:
 
-https://api.lindagrid.io/event/contract/LPVGVfnrHBSgv4ypgdaSRuWrdfwBjpQyn9?fingerprint=e1E1OqO3vrhmwE23
+https://api.lindagrid.lindacoin.org/event/contract/LPVGVfnrHBSgv4ypgdaSRuWrdfwBjpQyn9?fingerprint=e1E1OqO3vrhmwE23
 
 `onlyConfirmed` returns only the confirmed events.
 
